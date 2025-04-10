@@ -1,4 +1,4 @@
-name: Run Postman Tests with Newman
+name: Run Postman API Tests with Newman
 
 on:
   push:
@@ -13,18 +13,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: '14'
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
 
-    - name: Install dependencies
-      run: |
-        npm install
+      - name: Install dependencies
+        run: |
+          npm install
 
-    - name: Run Postman Collection with Newman
-      run: |
-        newman run postman/collection.json --environment postman/environment.json
+      - name: Run Postman Collection with Newman
+        run: |
+          newman run postman/collection.json --environment postman/environment.json
